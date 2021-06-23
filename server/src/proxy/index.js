@@ -1,6 +1,12 @@
 
+const express = require('express')
+
+const { initRoutes } = require('./routes')
+
 const initServer = () => {
-  // TODO startup the server
+  const app = express()
+
+  initRoutes(app)
 }
 
 module.export = {

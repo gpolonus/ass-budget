@@ -6,18 +6,18 @@ const fetchOutputs = () => {
   return fetchData('outputs');
 }
 
-const putOutput = ({ amount, recurringType, recurringDate }) => {
+const putOutput = ({ amount, recurringType, recurringData }) => {
   // TODO Outputs validation here
-  putData('outputs[]', { amount, recurringType, recurringDate });
+  return putData('outputs[]', { amount, recurringType, recurringData });
 }
 
 const fetchInputs = () => {
   return fetchData('inputs');
 }
 
-const putInput = ({ amount, recurringType, recurringDate }) => {
+const putInput = ({ amount, recurringType, recurringData }) => {
   // TODO inputs validation here
-  putData('inputs[]', { amount, recurringType, recurringDate });
+  putData('inputs[]', { amount, recurringType, recurringData });
 }
 
 module.exports = {

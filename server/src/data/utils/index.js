@@ -1,11 +1,12 @@
 
 const loopDates = (startDate, endDate, fn) => {
   const values = []
-  for (var d = new Date(2012, 0, 1); d <= now; d.setDate(d.getDate() + 1)) {
-    daysOfYear.push(new Date(d));
+  for (let d = new Date(startDate), i = 0; d <= endDate; d.setDate(d.getDate() + 1), i++) {
+    values.push(fn(d, values, i))
   }
+  return values
 }
 
 module.exports = {
-
+  loopDates
 }
