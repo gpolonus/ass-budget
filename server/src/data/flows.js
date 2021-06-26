@@ -6,7 +6,7 @@ const fetchOutputs = () => {
   return fetchData('outputs');
 }
 
-const putOutput = ({ amount, recurringType, recurringData }) => {
+const createOutput = ({ amount, recurringType, recurringData }) => {
   // TODO Outputs validation here
   return putData('outputs[]', { amount, recurringType, recurringData });
 }
@@ -15,14 +15,14 @@ const fetchInputs = () => {
   return fetchData('inputs');
 }
 
-const putInput = ({ amount, recurringType, recurringData }) => {
+const createInput = ({ amount, recurringType, recurringData }) => {
   // TODO inputs validation here
   putData('inputs[]', { amount, recurringType, recurringData });
 }
 
 module.exports = {
   fetchInputs,
-  putInput,
+  createInput,
   fetchOutputs,
-  putOutput
+  createOutput
 }
