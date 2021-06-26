@@ -1,2 +1,4 @@
 
-// TODO import the server startup and do that shit
+const { initServer } = require('./src/proxy')
+
+initServer()

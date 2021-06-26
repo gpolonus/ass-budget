@@ -2,31 +2,19 @@
 const controller = require('./controller')
 
 const initRoutes = (app) => {
-  app.get('/inputs', )
+  app.get('/inputs', controller.getInputs)
 
   // app.put('/inputs')
 
-  app.post('/inputs', async (req, res) => {
-    await controller.createInput(req.query)
-    res.status(200)
-  })
+  app.post('/inputs', controller.postInput)
 
-  app.get('/outputs', async (req, res) => {
-    res.send(await controller.fetchOutputs())
-  })
+  app.get('/outputs', controller.getOutputs)
 
   // app.put('/outputs')
 
-  app.post('/outputs', async (req, res) => {
-    await controller.createOutput(req.query)
-    res.status(200)
-  })
+  app.post('/outputs', controller.postOutput)
 
-  app.get('/data/dailydata', async (res, req) => {
-    const { endDate } = req.query
-    const data = await controller.getDailyData(endDate)
-    res.send(data)
-  })
+  app.get('/data/dailydata', controller.getDailyData)
 }
 
 module.exports = {

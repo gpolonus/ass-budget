@@ -1,9 +1,9 @@
 
-const { fetchDailyData } = require('./dailydata')
+const { fetchFutureDailyData } = require('./dailydata')
 const { createInput, createOutput, fetchInputs, fetchOutputs } = require('./flows')
 
 module.exports = {
-  fetchDailyData,
+  fetchFutureDailyData,
   createInput,
   createOutput,
   fetchInputs,

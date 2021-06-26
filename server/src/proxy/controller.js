@@ -1,30 +1,34 @@
 
 const {
-  fetchDailyData,
+  fetchFutureDailyData,
   createInput,
   createOutput,
   fetchInputs,
   fetchOutputs
 } = require('../data')
 
-const postInput = ({ amount, recurringType, recurringData }) => {
-  return createInput({ amount, recurringType, recurringData })
+const postInput = async (req, res) => {
+  await createInput(req.query)
+  res.status(200)
 }
 
-const postOutput = ({ amount, recurringType, recurringData }) => {
-  return createOutput({ amount, recurringType, recurringData })
+const postOutput = (req, res) => {
+  await createOutput(req.query)
+  res.status(200)
 }
 
 const getInputs = async (req, res) => {
-  res.send(await controller.fetchInputs())
+  res.send(await fetchInputs())
 }
 
-const getOutputs = () => {
-  return fetchOutputs()
+const getOutputs = async (req, res) => {
+  res.send(await fetchOutputs())
 }
 
-const getDailyData = (endDate) => {
-  return fetchDailyData(endDate)
+const getDailyData = async (req, res) => {
+  const { endDate } = req.query
+  const data = await fetchFutureDailyData(endDate)
+  res.send(data)
 }
 
 module.exports = {
