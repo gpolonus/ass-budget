@@ -11,22 +11,32 @@ const db = new JsonDB(new Config("myDataBase", true, false, '/'));
 
 const fetchData = (path) => {
   return new Promise(resolve => {
-    resolve(db.get(path));
+    console.log(`fetched data at ${path}`)
+    resolve(db.getData(`/${path}`));
   }).catch(error => {
     console.log(error)
+    throw error
   })
 }
 
 const putData = (path, value) => {
   return new Promise(resolve => {
-    db.push(path, value, true)
+    console.log(`put value: ${JSON.stringify(value)} at ${path}`)
+    db.push(`/${path}`, value, true)
     resolve()
   }).catch(error => {
     console.log(error)
+    throw error
   })
 }
 
+const pushArray = (path, value) => {
+  return putData(`${path}[]`, value)
+}
+
+
 module.exports = {
   fetchData,
-  putData
+  putData,
+  pushArray
 }

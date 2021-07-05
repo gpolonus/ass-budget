@@ -3,7 +3,7 @@ const { fetchData, putData } = require('./services/data')
 // const { RECURRING_TYPES } = require('./constants');
 
 const fetchOutputs = () => {
-  return fetchData('outputs');
+  return fetchData('outputs').then(data => data || []);
 }
 
 const createOutput = ({ name, amount, recurringType, recurringData }) => {
@@ -12,12 +12,12 @@ const createOutput = ({ name, amount, recurringType, recurringData }) => {
 }
 
 const fetchInputs = () => {
-  return fetchData('inputs');
+  return fetchData('inputs').then(data => data || []);
 }
 
 const createInput = ({ name, amount, recurringType, recurringData }) => {
   // TODO inputs validation here
-  putData('inputs[]', { name, amount, recurringType, recurringData });
+  return putData('inputs[]', { name, amount, recurringType, recurringData });
 }
 
 module.exports = {

@@ -4,3 +4,7 @@ export const RECURRING_TYPES = {
   WEEKLY: 'WEEKLY'
 };
 
+export const FLOW_TYPES = {
+  INPUT: 'INPUT',
+  OUTPUT: 'OUTPUT'
+}

@@ -9,8 +9,12 @@
   let recurringType;
   let recurringData;
 
-  const submitHandler = () => {
-    onSubmit({ name, amount, recurringType, recurringData })
+  const submitHandler = async () => {
+    await onSubmit({ name, amount, recurringType, recurringData })
+    name = ''
+    amount = undefined
+    recurringType = RECURRING_TYPES.MONTHLY
+    recurringData = undefined
   }
 </script>
 

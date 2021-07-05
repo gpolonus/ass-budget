@@ -4,4 +4,4 @@
   import { FLOW_TYPES } from '../constants'
 </script>
 
-<FlowContents type={FLOW_TYPES.INPUT} />
+<FlowContents type={FLOW_TYPES.OUTPUT} />

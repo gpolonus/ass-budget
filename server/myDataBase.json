@@ -1,1 +1,36 @@
-{}
+{
+  "inputs": [
+    {
+      "name": "payment",
+      "amount": 1000,
+      "recurringType": "MONTHLY",
+      "recurringData": 3
+    },
+    {
+      "name": "consulting",
+      "amount": 20000,
+      "recurringType": "WEEKLY",
+      "recurringData": 6
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Lulu",
+      "amount": 200,
+      "recurringType": "WEEKLY",
+      "recurringData": 5
+    },
+    {
+      "name": "RENT",
+      "amount": 3000,
+      "recurringType": "MONTHLY",
+      "recurringData": 7
+    },
+    {
+      "name": "FOOD",
+      "amount": 120,
+      "recurringType": "WEEKLY",
+      "recurringData": 0
+    }
+  ]
+}

@@ -12,5 +12,5 @@ export default {
 
   postOutput: (data) => axios.post(routes.outputs, data),
 
-  fetchDailyData: (data) => axios.get(routes.dailyData, data)
+  fetchDailyData: ({ startAmount, endDate }) => axios.get(`${routes.dailyData}?startAmount=${startAmount}&endDate=${endDate}`, )
 }

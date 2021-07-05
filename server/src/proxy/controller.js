@@ -8,25 +8,30 @@ const {
 } = require('../data')
 
 const postInput = async (req, res) => {
-  await createInput(req.query)
-  res.status(200)
+  await createInput(req.body)
+  res.status(200).send(true)
 }
 
 const postOutput = async (req, res) => {
-  await createOutput(req.query)
-  res.status(200)
+  await createOutput(req.body)
+  res.status(200).send(true)
 }
 
 const getInputs = async (req, res) => {
-  res.send(await fetchInputs())
+  const thing = await fetchInputs()
+  res.send(thing)
 }
 
 const getOutputs = async (req, res) => {
-  res.send(await fetchOutputs())
+  const thing = await fetchOutputs()
+  res.send(thing)
 }
 
 const getDailyData = async (req, res) => {
-  const data = await fetchFutureDailyData(req.query)
+  let { startAmount, endDate } = req.query
+  startAmount = parseInt(startAmount)
+  endDate = new Date(parseInt(endDate))
+  const data = await fetchFutureDailyData({ startAmount, endDate })
   res.send(data)
 }
 
