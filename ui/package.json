@@ -9,9 +9,11 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "compression": "^1.7.1",
     "polka": "next",
-    "sirv": "^1.0.0"
+    "sirv": "^1.0.0",
+    "svelte-simple-modal": "^1.0.0"
   },
   "devDependencies": {
     "sapper": "^0.28.0",

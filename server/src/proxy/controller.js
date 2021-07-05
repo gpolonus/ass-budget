@@ -12,7 +12,7 @@ const postInput = async (req, res) => {
   res.status(200)
 }
 
-const postOutput = (req, res) => {
+const postOutput = async (req, res) => {
   await createOutput(req.query)
   res.status(200)
 }
@@ -26,8 +26,7 @@ const getOutputs = async (req, res) => {
 }
 
 const getDailyData = async (req, res) => {
-  const { endDate } = req.query
-  const data = await fetchFutureDailyData(endDate)
+  const data = await fetchFutureDailyData(req.query)
   res.send(data)
 }
 

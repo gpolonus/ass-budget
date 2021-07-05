@@ -1,6 +1,7 @@
 
-const { fetchInputs, fetchOutputs } = require('flows');
-const { RECURRING_TYPES } = require('../constants')
+const { fetchInputs, fetchOutputs } = require('./flows');
+const { RECURRING_TYPES } = require('../constants');
+const { loopDates } = require('./utils')
 
 const isFlowOnDate = (flow, date) => {
   const { recurringType, recurringData } = flow
@@ -32,18 +33,18 @@ const getDailyFlowAmount = (inputs, outputs, date) => {
   return flowAmount
 }
 
-const getDailyData = (inputs, outputs, startDate, endDate) => {
+const getDailyData = (startAmount, inputs, outputs, startDate, endDate) => {
   return loopDates(startDate, endDate, (date, values) => {
     const dailyFlow = getDailyFlowAmount(inputs, outputs, date)
     const prevValue = values[values.length - 1]
     return prevValue + dailyFlow
-  })
+  }, [startAmount])
 }
 
-const fetchFutureDailyData = async (endDate) => {
+const fetchFutureDailyData = async (startAmount, endDate) => {
   const [inputs, outputs] = await Promise.all([fetchInputs(), fetchOutputs()])
   const date = new Date()
-  return getDailyData(inputs, outputs, date, endDate)
+  return getDailyData(startAmount, inputs, outputs, date, endDate)
 }
 
 module.exports = {

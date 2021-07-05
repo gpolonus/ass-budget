@@ -14,7 +14,7 @@ const initRoutes = (app) => {
 
   app.post('/outputs', controller.postOutput)
 
-  app.get('/data/dailydata', controller.getDailyData)
+  app.get('/data/daily', controller.getDailyData)
 }
 
 module.exports = {
