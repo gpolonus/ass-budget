@@ -8,11 +8,12 @@
 
   let createOpen = false;
 
-  const onSubmit = async ({ amount, recurringType, recurringData }) => {
-    await postInput({ amount, recurringType, recurringData })
+  const onSubmit = async ({ name, amount, recurringType, recurringData }) => {
+    await postInput({ name, amount, recurringType, recurringData })
+
   }
 
-  onMount(async () => {
+  onMount(() => {
     fetchInputs()
   })
 </script>
